@@ -6,5 +6,8 @@ class selectors{
     getButtonElbyType(type){
         return cy.get('button[type='+type+']').contains('Login')
     }
+    getTextbyCSS(text){
+        return cy.get(".menu-item-name").contains(text)
+    }
 }
 export default selectors
