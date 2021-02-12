@@ -1,4 +1,5 @@
 
+
 import config from "../fixtures/config.json";
 import selectors from "./Selectors/Selectors";
 // import Selectors from"./Selectors/Selectors"
@@ -20,9 +21,17 @@ describe("Login Test",function(){
         cy.intercept('POST', config.baseURL, {
   statusCode: 200,
   body: 'it worked!'
+        })
 })
 
-    })
+it("3. Logout functionality with response code",function(){
+    Selectors.getInputElbyType("email").type(config.username)
+    Selectors.getInputElbyType("password").type(config.password)
+    Selectors.getButtonElbyType("submit").click()
+    Selectors.getTextbyCSS("Sign Out").click().intercept(config.baseURL+'/access/logout',(req=>expect(req.status).to.eq(200)))
+   
+})
+
   
 })
 
