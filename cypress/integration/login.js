@@ -28,7 +28,7 @@ it("3. Logout functionality with response code",function(){
     Selectors.getInputElbyType("email").type(config.username)
     Selectors.getInputElbyType("password").type(config.password)
     Selectors.getButtonElbyType("submit").click()
-    Selectors.getTextbyCSS("Sign Out").click().intercept(config.baseURL+'/access/logout',(req=>expect(req.status).to.eq(200)))
+    Selectors.getTextbyCSS("Sign Out").click().intercept(config.baseURL+'/access/logout',(req=>expect(req.status).to.eq(204)))
    
 })
 
